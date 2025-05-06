@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Your Performance Evaluations{% endblock %}
+
+{% block content %}
+<h2>Your Performance Evaluations</h2>
+
+{% if evaluations %}
+    <ul>
+    {% for evaluation in evaluations %}
+        <li>
+            <strong>{{ evaluation.month }}</strong><br>
+            Communication: {{ evaluation.communication_score }}<br>
+            Punctuality: {{ evaluation.punctuality_score }}<br>
+            Task Completion: {{ evaluation.task_completion_score }}<br>
+            Comments: {{ evaluation.comments }}<br>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No evaluations yet.</p>
+{% endif %}
+{% endblock %}
