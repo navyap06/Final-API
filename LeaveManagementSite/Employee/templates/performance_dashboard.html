@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Performance Dashboard{% endblock %}
+
+{% block content %}
+<h2>Employee Performance Dashboard</h2>
+
+{% if evaluations %}
+    <ul>
+    {% for evaluation in evaluations %}
+        <li>
+            <strong>{{ evaluation.employee.username }} - {{ evaluation.month }}</strong><br>
+            Communication: {{ evaluation.communication_score }}<br>
+            Punctuality: {{ evaluation.punctuality_score }}<br>
+            Task Completion: {{ evaluation.task_completion_score }}<br>
+            Comments: {{ evaluation.comments }}<br>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No evaluations found.</p>
+{% endif %}
+{% endblock %}
